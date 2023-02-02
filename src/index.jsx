@@ -11,6 +11,6 @@ root.render(
   <>
     <App title="Shivanand" desc="Developer" />
     <App title="Akshay" desc="Developer" />
-    <Test />
+    <Test count={10} />
   </>,
 );
