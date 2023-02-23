@@ -5,7 +5,7 @@ import Child2 from './Child2';
 // let count = 0;
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class Test extends Component {
+export default class Demo extends Component {
   // state = {
   //   count: 0,
   //   name: 'shivanand',
@@ -35,14 +35,20 @@ export default class Test extends Component {
   async componentDidMount() {
     console.log('componentDidMount');
     // document.getElementById('test').style.backgroundColor = 'yellow';
-    document.addEventListener('copy', () => {
-      console.log('copied');
-    });
+    // document.addEventListener('mousemove', () => {
+    //   console.log('Mouse Moved');
+    // });
+
     try {
       const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
       const json = await res.json();
       this.setState({ name: json.title });
     } catch (error) { }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // server call
+    console.log(errorInfo);
   }
 
   increment = () => {

@@ -1,0 +1,44 @@
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import TodoListItem from './todoListItem';
+
+function TodoList({
+  todolist, updateTodo, deleteTodo, updateTodostate, deleteTodostate,
+}) {
+  return (
+    <>
+      {todolist.map((x) => (
+        <TodoListItem
+          key={x.id}
+          item={x}
+          updateTodo={updateTodo}
+          deleteTodo={deleteTodo}
+          updateTodostate={updateTodostate.find((y) => y.loadingId === x.id)}
+          deleteTodostate={deleteTodostate.find((y) => y.loadingId === x.id)}
+        />
+      ))}
+    </>
+  );
+}
+TodoList.propTypes = {
+  todolist: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+      isDone: PropTypes.bool.isRequired,
+
+    }).isRequired,
+  ).isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  updateTodostate: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.oneOf(['UPDATE_TODO']).isRequired,
+    status: PropTypes.oneOf(['REQUEST', 'ERROR']).isRequired,
+  })).isRequired,
+  deleteTodostate: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.oneOf(['DELETE_TODO']).isRequired,
+    status: PropTypes.oneOf(['REQUEST', 'ERROR']).isRequired,
+  })).isRequired,
+
+};
+export default memo(TodoList);

@@ -1,0 +1,29 @@
+{
+  "todoList": [
+    {
+      "text": "learn react",
+      "isDone": true,
+      "id": 1
+    },
+    {
+      "text": "learn python",
+      "isDone": false,
+      "id": 2
+    },
+    {
+      "text": "Get milk",
+      "isDone": false,
+      "id": 3
+    },
+    {
+      "text": "learn flutter",
+      "isDone": false,
+      "id": 4
+    },
+    {
+      "text": "learn HTML & CSS",
+      "isDone": false,
+      "id": 5
+    }
+  ]
+}

@@ -8,4 +8,5 @@ function Child1(props) {
   return (<div><h1>{count}</h1></div>);
 }
 
+// export default memo(Child1, (prevProps, nextProps) => false);
 export default memo(Child1);

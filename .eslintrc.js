@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   parser: '@babel/eslint-parser',
   extends: [
@@ -18,5 +19,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    'operator-linebreak': ['error', 'after'],
+    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+    'no-restricted-globals': ['error', 'event'],
+    'react/state-in-constructor': 0,
+    'react/static-property-placement': 0,
+
   },
 };
